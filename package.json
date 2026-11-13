@@ -1,12 +1,32 @@
 {
   "name": "console-launcher",
   "version": "1.0.0",
-  "description": "Menu d'accueil style console pour Fritchii",
+  "description": "Menu d'accueil plein écran façon consoles Nintendo pour lancer jeux Switch, Steam et PC à la manette",
+  "author": "Sky720FR",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dist": "electron-builder --win portable"
   },
   "devDependencies": {
-    "electron": "33.2.1"
+    "electron": "33.2.1",
+    "electron-builder": "25.1.8"
+  },
+  "build": {
+    "appId": "fr.sky720.consolelauncher",
+    "productName": "Console Launcher",
+    "files": [
+      "main.js", "preload.js", "renderer.js", "index.html",
+      "style.css", "themes.css", "open-controls.ps1",
+      "backgrounds/**", "fonts/**"
+    ],
+    "asarUnpack": ["open-controls.ps1"],
+    "directories": { "output": "dist" },
+    "electronDist": "node_modules/electron/dist",
+    "win": {
+      "target": "portable",
+      "signAndEditExecutable": false,
+      "artifactName": "ConsoleLauncher-${version}-Windows.exe"
+    }
   }
 }

@@ -4,6 +4,14 @@ Un menu d'accueil plein écran, pilotable à la manette, qui regroupe **tous mes
 
 Projet perso réalisé avec **Electron** (HTML / CSS / JavaScript), sans framework.
 
+<p align="center">
+  <a href="https://github.com/Sky720FR/console-launcher/releases/latest">
+    <img src="https://img.shields.io/badge/T%C3%A9l%C3%A9charger-Windows%20(.exe)-00c3e3?style=for-the-badge&logo=windows&logoColor=white" alt="Télécharger pour Windows">
+  </a>
+</p>
+
+<p align="center"><sub>Un seul fichier, rien à installer. Si Windows affiche « Windows a protégé votre ordinateur », clique sur <b>Informations complémentaires</b> puis <b>Exécuter quand même</b> (le fichier n'est pas signé).</sub></p>
+
 ![Menu style Switch 2](docs/screenshots/switch2.png)
 
 ## Fonctionnalités
@@ -40,7 +48,9 @@ Projet perso réalisé avec **Electron** (HTML / CSS / JavaScript), sans framewo
 
 ## Installation
 
-Il faut [Node.js](https://nodejs.org/) (version 18 ou plus récente) et Windows.
+**Le plus simple :** télécharge le `.exe` depuis la [page des versions](https://github.com/Sky720FR/console-launcher/releases/latest) et lance-le.
+
+**Depuis le code source** (il faut [Node.js](https://nodejs.org/) 18 ou plus récent, sous Windows) :
 
 ```bash
 git clone https://github.com/Sky720FR/console-launcher.git
@@ -48,6 +58,8 @@ cd console-launcher
 npm install
 npm start
 ```
+
+Pour fabriquer le `.exe` toi-même : `npm run dist` (le fichier arrive dans `dist/`).
 
 Au premier lancement, ouvre **Paramètres** (touche `S`, `-` / `+` ou le bouton ⚙) pour indiquer :
 - le chemin de tes émulateurs Switch 1 / Switch 2 (section *Émulateurs*)

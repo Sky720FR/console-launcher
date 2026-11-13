@@ -558,7 +558,8 @@ ipcMain.handle('pads:open', async (_e, what) => {
   if (what === 's1' || what === 's2') {
     const exe = loadConfig().emulators[what]?.path;
     if (!exe || !fs.existsSync(exe)) return { ok: false, error: `Émulateur introuvable : ${exe}` };
-    const script = path.join(__dirname, 'open-controls.ps1');
+    // Dans la version .exe, le script est sorti de l'archive (app.asar.unpacked) pour que PowerShell puisse le lire
+    const script = path.join(__dirname, 'open-controls.ps1').replace('app.asar', 'app.asar.unpacked');
     const child = spawn('powershell.exe', ['-NoProfile', '-ExecutionPolicy', 'Bypass', '-WindowStyle', 'Hidden',
       '-File', script, '-Exe', exe, '-Wait'], { windowsHide: true, stdio: 'ignore' });
     // Le menu se réduit pour laisser la place, puis revient quand l'émulateur est fermé
